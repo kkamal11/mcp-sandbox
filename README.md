@@ -39,4 +39,4 @@ Once the MCP Inspector is running, you can connect to your MCP server as follows
 
 You should now see the MCP server's logs and interactions in the MCP Inspector interface, allowing you to monitor and debug your MCP server effectively.
 
-List Tools and Test.
+List Tools in the tools tab and Test. You can see the available tools and their descriptions in the MCP Inspector's Tools tab. You can also test the tools by sending requests to your MCP server and observing the responses in the MCP Inspector.
