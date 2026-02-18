@@ -1,9 +1,13 @@
-from src import calc_mcp
+from src.calc_stdio import calc_mcp
+
+
+def run_calc_mcp():
+    calc_mcp.run()
 
 
 def main():
-    pass
+    run_calc_mcp()
 
 
 if __name__ == "__main__":
-    calc_mcp.run()
+    main()
