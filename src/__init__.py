@@ -1,3 +1,3 @@
-from .calculator import calc_mcp
+from .calculator_tool import calc_mcp
 
 __all__ = ["calc_mcp"]
