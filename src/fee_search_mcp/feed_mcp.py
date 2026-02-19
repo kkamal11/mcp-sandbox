@@ -1,4 +1,5 @@
 import feedparser
+from typing import List, Dict
 from fastmcp import FastMCP
 
 mcp = FastMCP(
@@ -7,7 +8,7 @@ mcp = FastMCP(
 
 
 @mcp.tool()
-def fcc_feed_search(query: str, max_results: int = 3) -> str:
+def fcc_feed_search(query: str, max_results: int = 3) -> List[Dict[str, str]]:
     """
     Search the FCC feed via RSS for news articles related to the given query.
 
@@ -21,19 +22,12 @@ def fcc_feed_search(query: str, max_results: int = 3) -> str:
     results = []
     query = query.lower()
     for entry in feed.entries:
+        print(entry)
         title = entry.get("title", "").lower()
         description = entry.get("description", "").lower()
         if query in title or query in description:
-            results.append(
-                {
-                    "title": title,
-                    "description": description,
-                    "link": entry.get("link", ""),
-                }
-            )
+            results.append({"title": title, "description": description})
         if len(results) >= max_results:
             break
 
-    if not results:
-        return [{"message": "No results found for the query."}]
     return results
