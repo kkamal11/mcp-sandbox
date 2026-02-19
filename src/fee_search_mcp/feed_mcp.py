@@ -20,11 +20,11 @@ def fcc_feed_search(query: str, max_results: int = 3) -> List[Dict[str, str]]:
     feed_url: str = "https://www.freecodecamp.org/news/rss"
     feed = feedparser.parse(feed_url)
     results: List[Dict[str, str]] = []
-    query = query.lower()
+    query_: str = query.lower()
     for entry in feed.entries:
         title: str = entry.get("title", "").lower()
         description: str = entry.get("description", "").lower()
-        if query in title or query in description:
+        if query_ in title or query_ in description:
             results.append({"title": title, "description": description})
         if len(results) >= max_results:
             break
