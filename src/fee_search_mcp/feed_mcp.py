@@ -15,14 +15,13 @@ def fcc_feed_search(query: str, max_results: int = 3) -> List[Dict[str, str]]:
     Args:
         query (str): The search query.
     Returns:
-        list: A list of dictionaries containing the title, description, and link of each relevant article.
+        list: A list of dictionaries containing the title, description.
     """
     feed_url: str = "https://www.freecodecamp.org/news/rss"
     feed = feedparser.parse(feed_url)
     results = []
     query = query.lower()
     for entry in feed.entries:
-        print(entry)
         title = entry.get("title", "").lower()
         description = entry.get("description", "").lower()
         if query in title or query in description:
