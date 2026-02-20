@@ -18,9 +18,9 @@ def run_feed_mcp():
 
 
 def main():
-    # run_calc_mcp()
+    run_calc_mcp()
     # run_fastapi()
-    run_feed_mcp()
+    # run_feed_mcp()
 
 
 if __name__ == "__main__":
